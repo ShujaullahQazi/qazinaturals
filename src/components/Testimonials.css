@@ -1,0 +1,103 @@
+.testimonials-section {
+    background: var(--charcoal);
+    padding: var(--space-4xl) var(--space-lg);
+}
+
+.testimonials-section .section-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.testimonials-section .section-title {
+    color: var(--cream);
+}
+
+.testimonials-section .section-subtitle {
+    color: rgba(255, 248, 231, 0.6);
+    margin: 0 auto;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* WhatsApp-style chat bubble */
+.testimonial-card {
+    background: #DCF8C6;
+    border-radius: 12px 12px 12px 4px;
+    padding: var(--space-lg);
+    position: relative;
+    box-shadow: var(--shadow-sm);
+}
+
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -8px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 12px 10px;
+    border-color: transparent transparent #DCF8C6 transparent;
+}
+
+.testimonial-stars {
+    color: var(--saffron);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.testimonial-text {
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.testimonial-name {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--charcoal);
+}
+
+.testimonial-city {
+    font-size: 0.78rem;
+    color: #666;
+}
+
+.testimonial-time {
+    font-size: 0.7rem;
+    color: #999;
+}
+
+.testimonial-wa-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: var(--space-md);
+    font-size: 0.72rem;
+    color: var(--whatsapp-dark);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding: var(--space-2xl) var(--space-md);
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
