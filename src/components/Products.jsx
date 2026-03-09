@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import './Products.css';
 
-import sampleImg from '../assets/products/sample-50g.png';
-import gharImg from '../assets/products/ghar-100g.png';
-import familyImg from '../assets/products/family-250g.png';
-import valueImg from '../assets/products/value-500g.png';
+import sampleImg from '../assets/products/sample-50g.webp';
+import gharImg from '../assets/products/ghar-100g.webp';
+import familyImg from '../assets/products/family-250g.webp';
+import valueImg from '../assets/products/value-500g.webp';
 
 const products = [
     {
@@ -76,7 +76,7 @@ export default function Products() {
                     >
                         <span className="product-highlight-tag">✨ Pehle Try Kijiye!</span>
                         <div className="product-image">
-                            <img src={product.image} alt={product.name} loading="lazy" />
+                            <img src={product.image} alt={product.name} loading="lazy" width="800" height="600" />
                         </div>
                         <div className="product-info">
                             <h3 className="product-name">{product.name}</h3>

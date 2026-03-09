@@ -1,7 +1,7 @@
 import './PurityProof.css';
-import rawImg from '../assets/purity/raw-turmeric.png';
-import grindingImg from '../assets/purity/grinding-process.png';
-import finalImg from '../assets/purity/final-product.png';
+import rawImg from '../assets/purity/raw-turmeric.webp';
+import grindingImg from '../assets/purity/grinding-process.webp';
+import finalImg from '../assets/purity/final-product.webp';
 
 const steps = [
     { icon: '🫚', num: 'STEP 01', label: 'Raw Bulbs', desc: 'Taza haldi khet se' },
@@ -71,7 +71,7 @@ export default function PurityProof() {
             <div className="purity-photos">
                 {photos.map((photo, i) => (
                     <div className="purity-photo-slot" key={i}>
-                        <img src={photo.img} alt={photo.label} loading="lazy" />
+                        <img src={photo.img} alt={photo.label} loading="lazy" width="800" height="600" />
                         <span className="purity-photo-label">{photo.label}</span>
                     </div>
                 ))}
