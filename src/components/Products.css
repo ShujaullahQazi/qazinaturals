@@ -127,6 +127,61 @@
     box-shadow: none;
 }
 
+/* Inline quantity counter */
+.product-qty-control {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 2px solid var(--gold);
+}
+
+.product-qty-btn {
+    flex: 1;
+    padding: 0.7rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+    line-height: 1;
+}
+
+.product-qty-minus {
+    background: var(--forest);
+    color: var(--white);
+}
+
+.product-qty-minus:hover {
+    background: var(--forest-light);
+}
+
+.product-qty-plus {
+    background: linear-gradient(135deg, var(--gold), var(--saffron));
+    color: var(--charcoal);
+}
+
+.product-qty-plus:hover {
+    filter: brightness(1.08);
+}
+
+.product-qty-btn:active {
+    transform: scale(0.92);
+}
+
+.product-qty-value {
+    flex: 1;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--charcoal);
+    background: var(--white);
+    padding: 0.7rem 0;
+    user-select: none;
+}
+
 @media (max-width: 768px) {
     .products-section {
         padding: var(--space-2xl) var(--space-md);
