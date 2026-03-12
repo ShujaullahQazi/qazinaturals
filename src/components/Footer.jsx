@@ -1,4 +1,5 @@
 import './Footer.css';
+import { WHATSAPP_BASE_URL } from '../config/constants';
 
 export default function Footer() {
     return (
@@ -13,7 +14,7 @@ export default function Footer() {
                         <a href="https://instagram.com/qazinaturals" target="_blank" rel="noopener noreferrer">📸</a>
                         <a href="https://facebook.com/qazinaturals" target="_blank" rel="noopener noreferrer">📘</a>
                         <a href="https://tiktok.com/@qazinaturals" target="_blank" rel="noopener noreferrer">🎵</a>
-                        <a href="https://wa.me/923095942096" target="_blank" rel="noopener noreferrer">💬</a>
+                        <a href={WHATSAPP_BASE_URL} target="_blank" rel="noopener noreferrer">💬</a>
                     </div>
                 </div>
 
@@ -28,7 +29,7 @@ export default function Footer() {
 
                 <div className="footer-column">
                     <h4>Contact</h4>
-                    <a href="https://wa.me/923095942096" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+                    <a href={WHATSAPP_BASE_URL} target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
                     <a href="https://instagram.com/qazinaturals" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
                     <a href="mailto:hello@qazinaturals.pk">📧 Email</a>
                 </div>

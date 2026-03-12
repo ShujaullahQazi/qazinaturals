@@ -1,7 +1,6 @@
 import { useCart } from '../context/CartContext';
 import './Cart.css';
-
-const WHATSAPP_NUMBER = '923095942096';
+import { WHATSAPP_NUMBER } from '../config/constants';
 
 export default function Cart({ isOpen, onClose }) {
     const { cart, dispatch, cartTotal } = useCart();

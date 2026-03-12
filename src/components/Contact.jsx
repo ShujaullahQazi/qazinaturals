@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './Contact.css';
-
-const WHATSAPP_NUMBER = '923095942096';
+import { WHATSAPP_NUMBER } from '../config/constants';
 
 export default function Contact() {
     const [form, setForm] = useState({ name: '', phone: '', message: '' });

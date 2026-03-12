@@ -1,6 +1,5 @@
 import './WhatsAppFloat.css';
-
-const WHATSAPP_NUMBER = '923095942096';
+import { WHATSAPP_NUMBER } from '../config/constants';
 
 export default function WhatsAppFloat() {
     const message = encodeURIComponent('Salam! Mujhe Qazi Naturals Haldi ke baray mein puchna hai.');
