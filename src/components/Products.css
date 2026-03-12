@@ -131,54 +131,57 @@
 .product-qty-control {
     display: flex;
     align-items: center;
-    gap: 0;
+    justify-content: center;
+    gap: 0.8rem;
     width: 100%;
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    border: 2px solid var(--gold);
 }
 
 .product-qty-btn {
-    flex: 1;
-    padding: 0.7rem;
-    font-size: 1.15rem;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    font-size: 1.2rem;
     font-weight: 700;
     border: none;
     cursor: pointer;
-    transition: background var(--transition-fast), transform var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
     line-height: 1;
+    flex-shrink: 0;
 }
 
 .product-qty-minus {
-    background: var(--forest);
+    background: #B5382A;
     color: var(--white);
 }
 
 .product-qty-minus:hover {
-    background: var(--forest-light);
+    background: #9C2E22;
+    box-shadow: 0 3px 10px rgba(181, 56, 42, 0.3);
 }
 
 .product-qty-plus {
-    background: linear-gradient(135deg, var(--gold), var(--saffron));
-    color: var(--charcoal);
+    background: var(--forest);
+    color: var(--white);
 }
 
 .product-qty-plus:hover {
-    filter: brightness(1.08);
+    background: var(--forest-light);
+    box-shadow: 0 3px 10px rgba(45, 95, 45, 0.3);
 }
 
 .product-qty-btn:active {
-    transform: scale(0.92);
+    transform: scale(0.9);
 }
 
 .product-qty-value {
-    flex: 1;
+    min-width: 28px;
     text-align: center;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: var(--charcoal);
-    background: var(--white);
-    padding: 0.7rem 0;
     user-select: none;
 }
 

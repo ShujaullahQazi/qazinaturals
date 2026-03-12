@@ -13,6 +13,7 @@ export default function Contact() {
         e.preventDefault();
         const msg = `Salam! Mera naam ${form.name} hai.\nPhone: ${form.phone}\n\n${form.message}`;
         window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        setForm({ name: '', phone: '', message: '' });
     };
 
     return (
