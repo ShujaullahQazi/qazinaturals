@@ -1,0 +1,154 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem clamp(1rem, 4vw, 2rem);
+  transition: background 0.3s var(--ease), color 0.3s var(--ease);
+  color: var(--paper);
+}
+
+.solid {
+  background: rgba(26, 18, 14, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(243, 239, 230, 0.08);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 0.15rem;
+}
+
+.brandMark {
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.brandSub {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.links a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: opacity var(--transition), color var(--transition);
+}
+
+.links a:hover {
+  opacity: 1;
+  color: var(--powder);
+}
+
+.cartBtn,
+.menuBtn,
+.closeBtn {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: inherit;
+  position: relative;
+  padding: 0.35rem 0;
+}
+
+.cartBtn:hover,
+.menuBtn:hover,
+.closeBtn:hover {
+  color: var(--powder);
+}
+
+.badge {
+  position: absolute;
+  top: -0.45rem;
+  right: -0.85rem;
+  min-width: 1.1rem;
+  height: 1.1rem;
+  padding: 0 0.25rem;
+  border-radius: 999px;
+  background: var(--turmeric);
+  color: var(--soil);
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileControls {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), visibility var(--transition);
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(300px, 88vw);
+  background: var(--soil);
+  color: var(--paper);
+  z-index: 1002;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transform: translateX(100%);
+  transition: transform var(--transition);
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer a {
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(243, 239, 230, 0.12);
+}
+
+.closeBtn {
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 860px) {
+  .links {
+    display: none;
+  }
+
+  .mobileControls {
+    display: flex;
+  }
+}

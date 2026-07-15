@@ -1,0 +1,114 @@
+.section {
+  background: var(--paper);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.highlight {
+  border-color: rgba(201, 149, 42, 0.55);
+}
+
+.tag {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2;
+  background: var(--soil);
+  color: var(--paper);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.55rem;
+  border-radius: var(--radius-sm);
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--paper-dark);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.info {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.info h3 {
+  font-size: 1.15rem;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.price {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0.35rem 0 0.75rem;
+}
+
+.price span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.qty {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr 2.5rem;
+  align-items: center;
+  background: var(--paper);
+  border-radius: var(--radius-sm);
+}
+
+.qty button {
+  height: 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--soil);
+}
+
+.qty button:hover {
+  background: var(--paper-dark);
+}
+
+.qty span {
+  text-align: center;
+  font-weight: 700;
+}
+
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

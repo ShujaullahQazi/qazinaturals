@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://qazinaturals.pk/sitemap.xml
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: bingbot
-Allow: /

@@ -1,0 +1,89 @@
+.article {
+  padding-top: 5.5rem;
+}
+
+.hero {
+  background: var(--soil);
+  color: var(--paper);
+  padding: 3.5rem clamp(1rem, 4vw, 2rem) 3rem;
+}
+
+.kicker {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--powder);
+  margin-bottom: 0.75rem;
+}
+
+.hero h1 {
+  max-width: 16ch;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.lead {
+  max-width: 46ch;
+  color: rgba(243, 239, 230, 0.72);
+  font-size: 1.05rem;
+}
+
+.body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.75rem clamp(1rem, 4vw, 2rem) 4rem;
+}
+
+.body h2 {
+  font-size: 1.45rem;
+  margin: 1.75rem 0 0.7rem;
+}
+
+.body p,
+.body li {
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.body ul,
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0.75rem 0 1rem;
+  padding-left: 1.1rem;
+}
+
+.body ul {
+  list-style: disc;
+}
+
+.steps {
+  list-style: decimal;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.pagePad {
+  padding-top: 4.5rem;
+}
+
+.note {
+  max-width: var(--max);
+  margin: 0 auto 3rem;
+  padding: 0 clamp(1rem, 4vw, 2rem);
+  color: var(--muted);
+}
+
+.note a {
+  color: var(--turmeric-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

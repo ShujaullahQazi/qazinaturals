@@ -1,0 +1,94 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  color: var(--paper);
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  animation: kenburns 18s ease-out forwards;
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(18, 12, 8, 0.35) 0%, rgba(18, 12, 8, 0.2) 35%, rgba(18, 12, 8, 0.78) 100%),
+    linear-gradient(90deg, rgba(18, 12, 8, 0.55) 0%, rgba(18, 12, 8, 0.15) 55%, transparent 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  padding: 7.5rem clamp(1rem, 4vw, 2rem) 4.5rem;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.85rem;
+}
+
+.title {
+  font-size: clamp(1.55rem, 4.2vw, 2.4rem);
+  font-weight: 500;
+  max-width: 14ch;
+  margin-bottom: 1rem;
+  color: rgba(243, 239, 230, 0.92);
+}
+
+.title span {
+  display: block;
+  color: var(--powder);
+}
+
+.lead {
+  max-width: 34ch;
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  color: rgba(243, 239, 230, 0.78);
+  margin-bottom: 1.75rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.25rem;
+}
+
+.ghost {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(243, 239, 230, 0.9);
+  border-bottom: 1px solid rgba(230, 197, 106, 0.55);
+  padding-bottom: 0.15rem;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.ghost:hover {
+  color: var(--powder);
+  border-color: var(--powder);
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding-bottom: 3.25rem;
+  }
+
+  .brand {
+    max-width: 10ch;
+  }
+}

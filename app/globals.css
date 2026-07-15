@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700&display=swap');
+
+:root {
+  --soil: #1a120e;
+  --soil-soft: #2a1c14;
+  --clay: #4a3426;
+  --turmeric: #c9952a;
+  --turmeric-deep: #a67a1f;
+  --powder: #e6c56a;
+  --paper: #f3efe6;
+  --paper-dark: #e7e0d2;
+  --ink: #17120f;
+  --muted: #6d5f52;
+  --line: rgba(26, 18, 14, 0.12);
+  --white: #ffffff;
+  --whatsapp: #1f9e4b;
+  --whatsapp-dark: #187a3a;
+  --overlay: rgba(18, 12, 8, 0.55);
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Figtree', system-ui, sans-serif;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6.5rem;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease);
+  --max: 1120px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+.site-main {
+  min-height: 60vh;
+}
+
+.section {
+  padding: var(--space-3xl) clamp(1rem, 4vw, 2rem);
+}
+
+.section-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.section-kicker {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--turmeric-deep);
+  margin-bottom: var(--space-sm);
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  color: var(--ink);
+  margin-bottom: var(--space-md);
+  max-width: 18ch;
+}
+
+.section-lead {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 42ch;
+  margin-bottom: var(--space-2xl);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--turmeric);
+  color: var(--soil);
+}
+
+.btn-primary:hover {
+  background: var(--powder);
+}
+
+.btn-dark {
+  background: var(--soil);
+  color: var(--paper);
+}
+
+.btn-dark:hover {
+  background: var(--clay);
+}
+
+.btn-wa {
+  background: var(--whatsapp);
+  color: var(--white);
+}
+
+.btn-wa:hover {
+  background: var(--whatsapp-dark);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.reveal {
+  animation: rise 0.8s var(--ease) both;
+}
+
+.reveal-delay {
+  animation: rise 0.9s var(--ease) 0.12s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
