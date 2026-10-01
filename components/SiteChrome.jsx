@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Cart from '@/components/Cart';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
+import Chatbot from '@/components/Chatbot';
 
 export default function SiteChrome({ children }) {
   const [cartOpen, setCartOpen] = useState(false);
@@ -15,6 +16,7 @@ export default function SiteChrome({ children }) {
       <main className="site-main">{children}</main>
       <Footer />
       <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)} />
+      <Chatbot />
       <WhatsAppFloat />
     </>
   );

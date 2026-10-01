@@ -1,0 +1,365 @@
+.launcher {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 5.5rem;
+  z-index: 1500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-width: 7.4rem;
+  height: 3.4rem;
+  padding: 0 1rem 0 0.75rem;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      135deg,
+      var(--soil),
+      var(--clay)
+    );
+  color: var(--paper);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    0 0.75rem 2rem rgb(39 26 18 / 24%),
+    inset 0 1px rgb(255 255 255 / 10%);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.launcher:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0.9rem 2.2rem rgb(39 26 18 / 30%),
+    inset 0 1px rgb(255 255 255 / 12%);
+}
+
+.launcherIcon,
+.headerIcon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--turmeric);
+  color: var(--soil);
+}
+
+.launcherIcon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.launcherIcon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.launcherLabel {
+  white-space: nowrap;
+}
+
+.statusDot {
+  width: 0.46rem;
+  height: 0.46rem;
+  border: 2px solid var(--soil);
+  border-radius: 999px;
+  background: #55c66f;
+  box-shadow: 0 0 0 2px rgb(85 198 111 / 22%);
+}
+
+.closeGlyph {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.launcher:focus-visible,
+.close:focus-visible,
+.form textarea:focus-visible,
+.form button:focus-visible {
+  outline: 3px solid var(--turmeric);
+  outline-offset: 2px;
+}
+
+.panel {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 9.5rem;
+  z-index: 1499;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  width: min(24rem, calc(100vw - 2rem));
+  height: min(34rem, calc(100vh - 12rem));
+  overflow: hidden;
+  border: 1px solid rgb(39 26 18 / 12%);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+  box-shadow: 0 1rem 3rem rgb(39 26 18 / 24%);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background:
+    linear-gradient(
+      135deg,
+      var(--soil),
+      var(--clay)
+    );
+  color: var(--paper);
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.headerIcon {
+  width: 2.35rem;
+  height: 2.35rem;
+}
+
+.headerIcon svg {
+  width: 1.45rem;
+  height: 1.45rem;
+}
+
+.headerText {
+  display: grid;
+  gap: 0.12rem;
+}
+
+.headerText strong {
+  font-size: 0.95rem;
+}
+
+.headerText > span {
+  font-size: 0.72rem;
+  opacity: 0.78;
+}
+
+.close {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 12%);
+  color: inherit;
+  font: inherit;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1rem;
+  background: var(--cream);
+}
+
+.message {
+  max-width: 86%;
+  padding: 0.7rem 0.85rem;
+  border-radius: 1rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.message[data-role='assistant'] {
+  align-self: flex-start;
+  border-bottom-left-radius: 0.25rem;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.message[data-role='user'] {
+  align-self: flex-end;
+  border-bottom-right-radius: 0.25rem;
+  background: var(--turmeric);
+  color: var(--soil);
+}
+
+.message p {
+  margin: 0;
+}
+
+.message p + p,
+.message p + ul,
+.message p + ol,
+.message ul + p,
+.message ol + p {
+  margin-top: 0.55rem;
+}
+
+.message ul,
+.message ol {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.message li + li {
+  margin-top: 0.25rem;
+}
+
+.message strong {
+  color: var(--soil);
+}
+
+.message a {
+  color: var(--turmeric-deep);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.message a:hover {
+  color: var(--clay);
+}
+
+.typing {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: 2.25rem;
+}
+
+.typing span {
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: var(--muted);
+  animation: typingPulse 1.2s infinite ease-in-out;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid rgb(39 26 18 / 10%);
+  background: var(--paper);
+}
+
+.form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 2.65rem;
+  max-height: 7rem;
+  padding: 0.72rem 0.75rem;
+  overflow-y: hidden;
+  resize: none;
+  border: 1px solid rgb(39 26 18 / 20%);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.form button {
+  height: 2.65rem;
+  padding: 0 1rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--soil);
+  color: var(--paper);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.notice {
+  margin: 0;
+  padding: 0 0.75rem 0.65rem;
+  background: var(--paper);
+  color: var(--muted);
+  font-size: 0.66rem;
+  text-align: center;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes typingPulse {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-0.16rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .launcher {
+    right: 1rem;
+    bottom: 5rem;
+    min-width: 3.1rem;
+    width: 3.1rem;
+    height: 3.1rem;
+    padding: 0;
+  }
+
+  .launcherLabel,
+  .statusDot {
+    display: none;
+  }
+
+  .panel {
+    right: 1rem;
+    bottom: 8.75rem;
+    left: 1rem;
+    width: auto;
+    height: min(32rem, calc(100vh - 10rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing span {
+    animation: none;
+    opacity: 0.65;
+  }
+}
