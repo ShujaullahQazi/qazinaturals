@@ -14,6 +14,30 @@ const welcomeMessage = {
   content: `Assalam-o-Alaikum! Qazi Naturals haldi, prices, delivery ya order ke baray mein poochiye.\n\n[WhatsApp par order karein](${WHATSAPP_BASE_URL})`,
 };
 
+const CHAT_SESSION_KEY = 'qn-chat-session-id';
+
+function getOrCreateSessionId() {
+  try {
+    const existingSessionId =
+      sessionStorage.getItem(CHAT_SESSION_KEY);
+
+    if (existingSessionId) {
+      return existingSessionId;
+    }
+
+    const newSessionId = crypto.randomUUID();
+
+    sessionStorage.setItem(
+      CHAT_SESSION_KEY,
+      newSessionId
+    );
+
+    return newSessionId;
+  } catch {
+    return crypto.randomUUID();
+  }
+}
+
 function safeMarkdownUrl(url) {
   if (
     url.startsWith('/') ||
@@ -55,8 +79,13 @@ export default function Chatbot() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const inputRef = useRef(null);
-  const messagesEndRef = useRef(null);
+const inputRef = useRef(null);
+const messagesEndRef = useRef(null);
+const sessionIdRef = useRef(null);
+
+useEffect(() => {
+  sessionIdRef.current = getOrCreateSessionId();
+}, []);
 
   useEffect(() => {
     if (!open) {
@@ -125,6 +154,11 @@ export default function Chatbot() {
     setInput('');
     setLoading(true);
 
+    const sessionId =
+  sessionIdRef.current || getOrCreateSessionId();
+
+sessionIdRef.current = sessionId;
+
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
@@ -132,8 +166,9 @@ export default function Chatbot() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          messages: conversation,
-        }),
+  sessionId,
+  messages: conversation,
+}),
       });
 
       if (!response.ok) {
@@ -338,9 +373,12 @@ export default function Chatbot() {
             </button>
           </form>
 
-          <p className={styles.notice}>
-            Enter se send · Shift+Enter se new line
-          </p>
+          <div className={styles.notice}>
+  <span>Enter se send · Shift+Enter se new line. </span>
+  <span>
+    Chats may be reviewed to improve Qazi Assistant.
+  </span>
+</div>
         </section>
       )}
 

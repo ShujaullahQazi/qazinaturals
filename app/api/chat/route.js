@@ -5,6 +5,7 @@ import {
   WHATSAPP_NUMBER,
 } from '@/lib/constants';
 
+import { saveChatInteraction } from '@/lib/chat-log';
 
 export const runtime = 'nodejs';
 
@@ -129,6 +130,20 @@ function sanitizeMessages(messages) {
     .filter((message) => message.content.length > 0);
 }
 
+function getSessionId(value) {
+  const uuidPattern =
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+  if (
+    typeof value === 'string' &&
+    uuidPattern.test(value)
+  ) {
+    return value;
+  }
+
+  return crypto.randomUUID();
+}
+
 export async function POST(request) {
   if (!isAllowedOrigin(request)) {
     return Response.json(
@@ -176,7 +191,8 @@ export async function POST(request) {
 
   try {
     const body = await request.json();
-    const messages = sanitizeMessages(body.messages);
+const messages = sanitizeMessages(body.messages);
+const sessionId = getSessionId(body.sessionId);
 
     if (
       messages.length === 0 ||
@@ -188,6 +204,11 @@ export async function POST(request) {
       );
     }
 
+    const userMessage = messages.at(-1).content;
+const model =
+  process.env.GROQ_CHAT_MODEL
+const startedAt = Date.now();
+
     const client = new OpenAI({
       apiKey,
       baseURL: 'https://api.groq.com/openai/v1',
@@ -195,11 +216,9 @@ export async function POST(request) {
       timeout: 15_000,
     });
 
-    const completionStream =
+const completionStream =
   await client.chat.completions.create({
-    model:
-      process.env.GROQ_CHAT_MODEL ||
-      'llama-3.1-8b-instant',
+    model,
     messages: [
       {
         role: 'system',
@@ -216,18 +235,58 @@ const encoder = new TextEncoder();
 
 const readableStream = new ReadableStream({
   async start(controller) {
+    let assistantResponse = '';
+
     try {
       for await (const chunk of completionStream) {
         const content =
           chunk.choices[0]?.delta?.content;
 
         if (content) {
-          controller.enqueue(encoder.encode(content));
+          assistantResponse += content;
+
+          controller.enqueue(
+            encoder.encode(content)
+          );
         }
+      }
+
+      try {
+        await saveChatInteraction({
+          sessionId,
+          userMessage,
+          assistantResponse,
+          model,
+          status: 'success',
+          latencyMs: Date.now() - startedAt,
+        });
+      } catch (databaseError) {
+        console.error(
+          'Chat logging failed:',
+          databaseError?.message || 'unknown error'
+        );
       }
 
       controller.close();
     } catch (streamError) {
+      try {
+        await saveChatInteraction({
+          sessionId,
+          userMessage,
+          assistantResponse:
+            assistantResponse ||
+            'Response stream failed.',
+          model,
+          status: 'error',
+          latencyMs: Date.now() - startedAt,
+        });
+      } catch (databaseError) {
+        console.error(
+          'Chat error logging failed:',
+          databaseError?.message || 'unknown error'
+        );
+      }
+
       console.error(
         'Groq stream failed:',
         streamError?.status || 'unknown error'
